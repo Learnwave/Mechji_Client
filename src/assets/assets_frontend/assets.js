@@ -15,6 +15,9 @@ import info_icon from './info_icon.svg'
 import upload_icon from './upload_icon.png'
 import stripe_logo from './stripe_logo.png'
 import razorpay_logo from './razorpay_logo.png'
+
+// heath care images
+
 import doc1 from './doc1.png'
 import doc2 from './doc2.png'
 import doc3 from './doc3.png'
@@ -31,22 +34,24 @@ import doc13 from './doc13.png'
 import doc14 from './doc14.png'
 import doc15 from './doc15.png'
 
-import shop from './Shopimage/advocate.avif'
-import shop1 from './Shopimage/auto-repair.jpg'
-import shop2 from './Shopimage/barber-shop.jpg'
-import shop3 from './Shopimage/electrical-shop.avif'
-import shop4 from './Shopimage/garment-shop.webp'
-import shop5 from './Shopimage/genral shop.jpg'
+// all shoping store images
+
+import advocate from './Shopimage/advocate.avif'
+import auto_repair from './Shopimage/auto-repair.jpg'
+import barber from './Shopimage/barber-shop.jpg'
+import electrical from './Shopimage/electrical-shop.avif'
+import garment from './Shopimage/garment-shop.webp'
+import genral from './Shopimage/genral shop.jpg'
 import shop6 from './Shopimage/genral shop.jpg'
-import shop7 from './Shopimage/gift-shop.jpeg'
-import shop8 from './Shopimage/grocery-shop.jpeg'
-import shop9 from './Shopimage/medical-shop.avif'
-import shop10 from './Shopimage/Mobile-shop.jpg'
-import shop11 from './Shopimage/sweets-shop.jpg'
-import shop12 from './Shopimage/stationery-shop.avif'
-import shop13 from './Shopimage/cycle-shop.jpg'
-import shop14 from './Shopimage/dental-clinic.avif'
-import shop15 from './Shopimage/dental-clinic.avif'
+import gift from './Shopimage/gift-shop.jpeg'
+import grocery from './Shopimage/grocery-shop.jpeg'
+import medical from './Shopimage/medical-shop.avif'
+import Mobile from './Shopimage/Mobile-shop.jpg'
+import sweets from './Shopimage/sweets-shop.jpg'
+import stationery from './Shopimage/stationery-shop.avif'
+import cycle from './Shopimage/cycle-shop.jpg'
+import dental from './Shopimage/dental-clinic.avif'
+
 
 import Dermatologist from './Dermatologist.svg'
 import Gastroenterologist from './Gastroenterologist.svg'
@@ -107,12 +112,13 @@ export const shops = [
     {
         _id: 'doc1',
         name: 'ad. Vinay Kumar',
-        image: shop,
-        category: 'Advocate',
+        image: advocate,
+        category: 'personal-services',
         degree: 'MBBS',
         experience: '4 Years',
         about: 'ad vinay has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
         fees: 50,
+        visitOnText : "Shop",
         address: {
             line1: '17th Cross, Richmond',
             line2: 'Circle, Ring Road, London'
@@ -120,13 +126,14 @@ export const shops = [
     },
     {
         _id: 'doc2',
-        name: 'Dr. Emily Larson',
-        image: shop2,
-        category: 'Gynecologist',
+        name: 'classic Motors',
+        image: auto_repair,
+        category: 'automoiles-services',
         degree: 'MBBS',
         experience: '3 Years',
         about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
         fees: 60,
+        visitOnText : "Shop",
         address: {
             line1: '27th Cross, Richmond',
             line2: 'Circle, Ring Road, London'
@@ -134,13 +141,14 @@ export const shops = [
     },
     {
         _id: 'doc3',
-        name: 'Dr. Sarah Patel',
-        image: shop3,
-        category: 'Dermatologist',
+        name: 'Nona solon',
+        image: barber,
+        category: 'personal-services',
         degree: 'MBBS',
         experience: '1 Years',
         about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
         fees: 30,
+        visitOnText : "Shop",
         address: {
             line1: '37th Cross, Richmond',
             line2: 'Circle, Ring Road, London'
@@ -148,9 +156,9 @@ export const shops = [
     },
     {
         _id: 'doc4',
-        name: 'Dr. Christopher Lee',
-        image: shop4,
-        category: 'Pediatricians',
+        name: 'Darshan electrical',
+        image: electrical,
+        category: 'repair-services',
         degree: 'MBBS',
         experience: '2 Years',
         about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
@@ -162,13 +170,14 @@ export const shops = [
     },
     {
         _id: 'doc5',
-        name: 'Dr. Jennifer Garcia',
-        image: shop5,
+        name: 'Ruplal garments',
+        image: garment,
         category: 'shoping-stores',
         degree: 'MBBS',
         experience: '4 Years',
         about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
         fees: 50,
+        visitOnText : "Shop",
         address: {
             line1: '57th Cross, Richmond',
             line2: 'Circle, Ring Road, London'
@@ -176,13 +185,14 @@ export const shops = [
     },
     {
         _id: 'doc6',
-        name: 'Dr. Andrew Williams',
-        image: shop6,
-        category: 'Neurologist',
+        name: 'Noor Bakery',
+        image: genral,
+        category: 'essential-services',
         degree: 'MBBS',
         experience: '4 Years',
         about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
         fees: 50,
+        visitOnText : "Shop",
         address: {
             line1: '57th Cross, Richmond',
             line2: 'Circle, Ring Road, London'
@@ -191,12 +201,13 @@ export const shops = [
     {
         _id: 'doc7',
         name: 'Dr. Christopher Davis',
-        image: shop7,
-        category: 'General physician',
+        image: gift,
+        category: 'shoping-stores',
         degree: 'MBBS',
         experience: '4 Years',
         about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
         fees: 50,
+        visitOnText : "Shop",
         address: {
             line1: '17th Cross, Richmond',
             line2: 'Circle, Ring Road, London'
@@ -205,12 +216,13 @@ export const shops = [
     {
         _id: 'doc8',
         name: 'Dr. Timothy White',
-        image: shop8,
-        category: 'Gynecologist',
+        image: grocery,
+        category: 'essential-services',
         degree: 'MBBS',
         experience: '3 Years',
         about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
         fees: 60,
+        visitOnText : "Shop",
         address: {
             line1: '27th Cross, Richmond',
             line2: 'Circle, Ring Road, London'
@@ -219,12 +231,13 @@ export const shops = [
     {
         _id: 'doc9',
         name: 'Dr. Ava Mitchell',
-        image: shop9,
-        category: 'Dermatologist',
+        image: medical,
+        category: 'healthcare-services',
         degree: 'MBBS',
         experience: '1 Years',
         about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
         fees: 30,
+        visitOnText : "Shop",
         address: {
             line1: '37th Cross, Richmond',
             line2: 'Circle, Ring Road, London'
@@ -233,12 +246,13 @@ export const shops = [
     {
         _id: 'doc10',
         name: 'Dr. Jeffrey King',
-        image: shop10,
-        category: 'Pediatricians',
+        image: Mobile,
+        category: 'repair-services',
         degree: 'MBBS',
         experience: '2 Years',
         about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
         fees: 40,
+        visitOnText : "Shop",
         address: {
             line1: '47th Cross, Richmond',
             line2: 'Circle, Ring Road, London'
@@ -246,13 +260,14 @@ export const shops = [
     },
     {
         _id: 'doc11',
-        name: 'Dr. Zoe Kelly',
-        image: shop11,
-        category: 'Neurologist',
+        name: 'Dr. Zoe Kelly sweeets',
+        image: sweets,
+        category: 'shoping-stores',
         degree: 'MBBS',
         experience: '4 Years',
         about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
         fees: 50,
+        visitOnText : "Shop",
         address: {
             line1: '57th Cross, Richmond',
             line2: 'Circle, Ring Road, London'
@@ -260,13 +275,14 @@ export const shops = [
     },
     {
         _id: 'doc12',
-        name: 'Dr. Patrick Harris',
-        image: shop12,
-        category: 'Neurologist',
+        name: 'Dr. Patrick Harris stationery',
+        image: stationery,
+        category: 'shoping-stores',
         degree: 'MBBS',
         experience: '4 Years',
         about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
         fees: 50,
+        visitOnText : "Shop",
         address: {
             line1: '57th Cross, Richmond',
             line2: 'Circle, Ring Road, London'
@@ -274,13 +290,14 @@ export const shops = [
     },
     {
         _id: 'doc13',
-        name: 'Dr. Chloe Evans',
-        image: shop13,
-        category: 'General physician',
+        name: 'Dr. Chloe Evans cycle',
+        image: cycle,
+        category: 'shoping-stores',
         degree: 'MBBS',
         experience: '4 Years',
         about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
         fees: 50,
+        visitOnText : "Shop",
         address: {
             line1: '17th Cross, Richmond',
             line2: 'Circle, Ring Road, London'
@@ -288,13 +305,14 @@ export const shops = [
     },
     {
         _id: 'doc14',
-        name: 'Dr. Ryan Martinez',
-        image: shop14,
-        category: 'Gynecologist',
+        name: 'Dr. Ryan Martinez dental',
+        image: dental,
+        category: 'healthcare-services',
         degree: 'MBBS',
         experience: '3 Years',
         about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
         fees: 60,
+        visitOnText : "Shop",
         address: {
             line1: '27th Cross, Richmond',
             line2: 'Circle, Ring Road, London'
@@ -302,13 +320,14 @@ export const shops = [
     },
     {
         _id: 'doc15',
-        name: 'Dr. Amelia Hill',
-        image: shop15,
-        category: 'Dermatologist',
+        name: 'Dr. Amelia Hill dental ',
+        image: dental,
+        category: 'healthcare-services',
         degree: 'MBBS',
         experience: '1 Years',
         about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
         fees: 30,
+        visitOnText : "Shop",
         address: {
             line1: '37th Cross, Richmond',
             line2: 'Circle, Ring Road, London'

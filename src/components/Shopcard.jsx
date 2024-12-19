@@ -24,7 +24,7 @@ const Shopcard = () => {
                             </div>
                             <p className='text-gray-900 text-lg font-medium '>{item.name}</p>
                             <p className='text-gray-600 text-sm'>{item.category}</p>
-                            <button className='border border-gray-500 rounded-md px-2 text-sm py-1 bg-black text-white'>Visit Shop </button>
+                            <button className='border border-gray-500 rounded-md px-2 text-sm py-1 bg-black text-white'>Visit {item.visitOnText} </button>
                         </div>
                     </div>
                 ))

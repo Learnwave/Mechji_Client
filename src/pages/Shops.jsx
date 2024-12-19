@@ -36,6 +36,7 @@ const Shops = () => {
           <p onClick={()=> category === "essential-services" ? navigate("/shops") : navigate("/shops/essential-services")} className={`w-[94vw] sm:w-auto  py-2 px-5  bg-black text-white text-sm rounded-sm transition-all cursor-pointer text-center hover:bg-gray-700 `} >Essential</p>
           <p onClick={()=> category === "transports-services" ? navigate("/shops") : navigate("/shops/transports-services")} className={`w-[94vw] sm:w-auto  py-2 px-5  bg-black text-white text-sm rounded-sm transition-all cursor-pointer text-center hover:bg-gray-700 `} >Transports</p>
           <p onClick={()=> category === "finacial-services" ? navigate("/shops") : navigate("/shops/finacial-services")} className={`w-[94vw] sm:w-auto  py-2 px-5  bg-black text-white text-sm rounded-sm transition-all cursor-pointer text-center hover:bg-gray-700 `} >Finacial</p>
+          <p onClick={()=> category === "personal-services" ? navigate("/shops") : navigate("/shops/personal-services")} className={`w-[94vw] sm:w-auto  py-2 px-5  bg-black text-white text-sm rounded-sm transition-all cursor-pointer text-center hover:bg-gray-700 `} >Personal</p>
          
         </div>
         

@@ -4,7 +4,7 @@ const CategoryMenus = () => {
   return (
     <div className='mt-3 flex flex-col gap-3' >
         <span>Browse By Category</span>
-        <div className='w-full sm:w-3/4 flex flex-wrap gap-1  items-center justify-around '>
+        <div className='w-full sm:w-3/4 flex flex-wrap gap-3  items-center justify-around '>
 
             <Link to={"/shops/shoping-stores"}  className='w-32 h-28 rounded-md border border-gray-400 cursor-pointer flex flex-col items-center justify-center hover:bg-slate-100' >
                      <img className='w-8' src="src/assets/Icons/store-solid.svg" alt="" /> 
@@ -49,6 +49,10 @@ const CategoryMenus = () => {
              <Link to={"/shops/finacial-services"} className='w-32 h-28 rounded-md border border-gray-400 cursor-pointer flex flex-col items-center justify-center hover:bg-slate-100' >
                      <img className='w-8' src="src/assets/Icons/sack-dollar-solid.svg" alt="" /> 
                     <span className='text-sm text-center'>Finacial<br /> Services</span>
+             </Link>
+             <Link to={"/shops/personal-services"} className='w-32 h-28 rounded-md border border-gray-400 cursor-pointer flex flex-col items-center justify-center hover:bg-slate-100' >
+                             <i className="text-2xl fa-solid fa-user"></i>
+                    <span className='text-sm text-center'>Personal<br /> Services</span>
              </Link>
              <Link to={"/shops"} className='w-32 h-28 rounded-md border border-gray-400 cursor-pointer flex flex-col items-center justify-center hover:bg-slate-100' >
                              <i className="text-2xl fa-solid fa-shop"></i>
