@@ -78,15 +78,15 @@ export const assets = {
 
 export const categoryData = [
     {
-        category: 'General physician',
+        category: 'shoping-stores',
         image: General_physician
     },
     {
-        category: 'Gynecologist',
+        category: 'technology-services',
         image: Gynecologist
     },
     {
-        category: 'Dermatologist',
+        category: 'automoiles-services',
         image: Dermatologist
     },
     {
