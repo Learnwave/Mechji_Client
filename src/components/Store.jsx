@@ -1,34 +1,26 @@
-import React, { useContext,useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import React, { useContext, useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import { AppContent } from '../context/AppContext';
+
 const Store = () => {
-    const category = useParams();
+
+    const {storeId} = useParams();
     const {shops} = useContext(AppContent);
-    const [filterShops,setFilterShops] = useState([]);
-    const navigate = useNavigate();
+    const [shopInfo,setShopinfo] = useState(null);
 
-    const applyFilter = () => {
-        if(category.docId){
-          setFilterShops(shops.filter(shop => shop.category === category.docId));
-        }else{
-          setFilterShops(shops);
-        }
-      }
+    const fetchShopInfo = async () => {
+        const shopInfo = shops.find(shop => shop._id === storeId);
+        setShopinfo(shopInfo);
+        console.log(shopInfo)
+    }
 
-      useEffect(()=>{
-        applyFilter();
-    },[shops,category])
-
-    console.log(category.docId);
-    console.log(filterShops);
-    
+    useEffect(()=>{
+        fetchShopInfo();
+        },[storeId ,shops])
 
   return (
     <div>
-        <p>Browse all shops your nearby</p>
-        <div>
-
-        </div>
+        
     </div>
   )
 }
