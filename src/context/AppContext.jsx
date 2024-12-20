@@ -12,6 +12,7 @@ export const AppContextProvider = (props)=>{
         const [isLoggedin, setIsLoggedin] = useState(false);
         const [password,setPassword] = useState("");
         const [userData, setUserData] = useState(false);
+        const currencySymbol = "$"
         const getAuthState = async ()=>{
             try {
                 const {data} = await axios.get(backendUrl+"/api/auth/isAuth")
@@ -38,7 +39,7 @@ export const AppContextProvider = (props)=>{
         },[])
 
         const value = {
-            backendUrl,isLoggedin,setIsLoggedin,setUserData,userData,getUserData,password,setPassword,shops
+            backendUrl,isLoggedin,setIsLoggedin,setUserData,userData,getUserData,password,setPassword,shops,currencySymbol
         }
 
         return(
