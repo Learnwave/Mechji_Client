@@ -53,6 +53,7 @@ const Store = () => {
                 <div><p>Inventory</p></div>
                 <div><p>Services</p></div>
                 <div><p>Offers</p></div>
+                <div><p>Reviews</p></div>
                 <div><p>About</p></div>
           </div>
           {/* right Menu */}
