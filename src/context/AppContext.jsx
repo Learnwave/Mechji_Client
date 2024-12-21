@@ -2,6 +2,7 @@ import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { shops } from "../assets/assets_frontend/assets";
+import { products } from "../assets/assets_products/frontend_assets/assets";
 
 export const AppContent = createContext();
 
@@ -39,7 +40,7 @@ export const AppContextProvider = (props)=>{
         },[])
 
         const value = {
-            backendUrl,isLoggedin,setIsLoggedin,setUserData,userData,getUserData,password,setPassword,shops,currencySymbol
+            backendUrl,isLoggedin,setIsLoggedin,setUserData,userData,getUserData,password,setPassword,shops,currencySymbol,products
         }
 
         return(

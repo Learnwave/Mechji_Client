@@ -9,6 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Navbar from "./components/Navbar";
 import Shops from "./pages/Shops";
 import Store from "./components/Store";
+import Product from "./pages/Product";
 const App = () => {
   return (
     <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] ">
@@ -26,6 +27,8 @@ const App = () => {
 
         <Route path="/store/" element={<Store/>}/>
         <Route path="/store/:storeId" element={<Store/>}/>
+
+        <Route path="/product/:productId" element={<Product/>} />
       </Routes>
     </div>
   );

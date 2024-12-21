@@ -2,11 +2,12 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { AppContent } from '../context/AppContext';
 import { assets } from '../assets/assets_frontend/assets';
+import Products_Items from './Products_Items';
 
 const Store = () => {
 
     const {storeId} = useParams();
-    const {shops,currencySymbol} = useContext(AppContent);
+    const {shops,currencySymbol,products} = useContext(AppContent);
     const [shopInfo,setShopinfo] = useState(null);
 
     const fetchShopInfo = async () => {
@@ -47,18 +48,25 @@ const Store = () => {
 
       {/* left menu section of div */}
 
-      <div  className='w-full h-screen flex'>
+      <div  className='w-full h-screen gap-4 flex mt-4'>
         {/* left menu */}
-          <div className=''>
-                <div><p>Inventory</p></div>
-                <div><p>Services</p></div>
-                <div><p>Offers</p></div>
-                <div><p>Reviews</p></div>
-                <div><p>About</p></div>
+          <div className=' flex flex-col gap-3 '>
+                <div className='flex items-center cursor-pointer px-7 py-2 text-center  bg-white rounded-md '><p className='w-32'>Inventory</p></div>
+                <div className='flex items-center cursor-pointer px-7 py-2 text-center  bg-white rounded-md '><p className='w-32'>Services</p></div>
+                <div className='flex items-center cursor-pointer px-7 py-2 text-center  bg-white rounded-md '><p className='w-32'>Offers</p></div>
+                <div className='flex items-center cursor-pointer px-7 py-2 text-center  bg-white rounded-md '><p className='w-32'>Reviews</p></div>
+                <div className='flex items-center cursor-pointer px-7 py-2 text-center  bg-white rounded-md '><p className='w-32'>About</p></div>
           </div>
           {/* right Menu */}
           <div>
-                
+            <div>
+              <p>All Products Listed by {shopInfo.name} </p>
+            </div>
+             <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6'>
+                {
+                  products.map((items,index)=>(<Products_Items key={index} name={items.name} id={items._id} price={items.price} image={items.image} />))
+                }
+              </div>
           </div>
       </div>
 
