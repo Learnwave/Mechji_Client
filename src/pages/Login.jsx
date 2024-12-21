@@ -49,12 +49,12 @@ const Login = () => {
             }
 
         } catch (error) {
-            toast.error(data.message);
+            toast.error(error.message);
         }
     }
 
   return (
-    <div className='flex items-start mt-16 sm:items-center  justify-center min-h-screen   sm:px-0  '>
+    <div className='flex items-start mt-16 sm:items-center  justify-center min-h-[80vh]   sm:px-0  '>
       
         <div className='border border-gray-600  shadow-black p-10 rounded-lg shadow-lg w-full sm:w-96 text-indigo-300 text-sm'>
           <h2 className='text-3xl font-semibold text-black text-center mb-3'>{state === 'Sign Up' ? 'Create Account' : 'Login'}</h2>
