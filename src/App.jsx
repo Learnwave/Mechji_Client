@@ -10,12 +10,13 @@ import Navbar from "./components/Navbar";
 import Shops from "./pages/Shops";
 import Store from "./components/Store";
 import Product from "./pages/Product";
+import Footer from "./components/Footer";
 const App = () => {
   return (
     <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] ">
       <ToastContainer />
        
-       <Navbar/>
+      <Navbar/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -30,6 +31,10 @@ const App = () => {
 
         <Route path="/product/:productId" element={<Product/>} />
       </Routes>
+
+      <hr  className='my-5 border-0.5 border-gray-400 shadow'/>
+     
+      <Footer/>
     </div>
   );
 };

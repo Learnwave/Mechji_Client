@@ -76,14 +76,7 @@ const Store = () => {
       </div>
 
       {/* left menu section of div */}
-
-      <div  className='w-full h-screen gap-4 flex mt-4'>
-        {/* left menu */}
-         
-          {/* right Menu */}
-         
-      </div>
-
+     
 
     </div>
   )
