@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { AppContent } from '../context/AppContext';
 import { assets } from '../assets/assets_frontend/assets';
 import Products_Items from './Products_Items';
+import ReletedShop from './ReletedShop';
 
 const Store = () => {
 
@@ -77,7 +78,7 @@ const Store = () => {
 
       {/* left menu section of div */}
      
-
+               <ReletedShop category={shopInfo.category} storeId={storeId}  />   
     </div>
   )
 }
