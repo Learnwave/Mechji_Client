@@ -11,6 +11,7 @@ import Shops from "./pages/Shops";
 import Store from "./components/Store";
 import Product from "./pages/Product";
 import Footer from "./components/Footer";
+import UserProfile from "./pages/UserProfile";
 const App = () => {
   return (
     <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] ">
@@ -30,6 +31,8 @@ const App = () => {
         <Route path="/store/:storeId" element={<Store/>}/>
 
         <Route path="/product/:productId" element={<Product/>} />
+
+        <Route path="/profile" element={<UserProfile/>} />
       </Routes>
 
       <hr  className='my-5 border-0.5 border-gray-400 shadow'/>

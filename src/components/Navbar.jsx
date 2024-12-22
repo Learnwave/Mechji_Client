@@ -78,7 +78,7 @@ const Navbar = () => {
 
         {userData ? <div className=' p-2 w-10 flex justify-center items-center rounded-full bg-black text-white relative group '> {userData.name[0].toUpperCase()} <div className=' absolute hidden group-hover:block top-0 right-0 z-10 text-black rounded pt-10' > 
             <ul className='border w-48 border-black list-none m-1 p-2 rounded-md  bg-black text-white text-sm cursor-pointer flex flex-col gap-3 '> 
-                <li className='text-xl'> Hi! {userData.name} <br /> <p className='text-sm text-indigo-200'>View Profile</p> </li>
+                <li className='text-xl'> Hi! {userData.name} <br /> <p onClick={()=>navigate("/profile")} className='text-sm text-indigo-200'>View Profile</p> </li>
                 
                 <p className='border hover:bg-slate-300 hover:text-black transition-all duration-300 rounded shadow shadow-white border-white px-2 py-1'>My Orders</p>
                 <p className='border hover:bg-slate-300 hover:text-black transition-all duration-300 rounded shadow shadow-white border-white px-2 py-1'>Create Space <br /> <span className='text-xs'>Sell Anything here</span> </p>
