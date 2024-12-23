@@ -11,7 +11,7 @@ const Login = () => {
     const [passView,setPassView] = useState('password')
     const navigate = useNavigate('')
 
-    const {backendUrl,setIsLoggedin,getUserData,setPassword,password} = useContext(AppContent);
+    const {backendUrl,setIsLoggedin, isLoggedin ,getUserData,setPassword,password} = useContext(AppContent);
 
     const passwordView = ()=> {
         if(passView === "password"){
@@ -53,7 +53,7 @@ const Login = () => {
         }
     }
 
-  return (
+  return !isLoggedin ? (
     <div className='flex items-start mt-16 sm:items-center  justify-center min-h-[80vh]   sm:px-0  '>
       
         <div className='border border-gray-600  shadow-black p-10 rounded-lg shadow-lg w-full sm:w-96 text-indigo-300 text-sm'>
@@ -95,7 +95,13 @@ const Login = () => {
                
         </div>
     </div>
-  )
+  ) : <div className=' h-screen w-full flex flex-col mt-10 gap-10 items-center'>
+            <div className=''>
+                <p className='text-3xl font-semibold'>You are Already Logged in </p>
+
+                <p onClick={()=>navigate("/")} className='text-indigo-900 mt-10 text-center cursor-pointer'>Click here and go to home page </p>
+            </div>
+         </div>
 }
 
 export default Login

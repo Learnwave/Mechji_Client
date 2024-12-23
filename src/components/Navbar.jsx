@@ -26,15 +26,17 @@ const Navbar = () => {
 
     const logout = async ()=>{
         try {
-            console.log("function working")
+            
             axios.defaults.withCredentials = true
             const {data} = await axios.post(backendUrl+'/api/auth/logout')
-            console.log(data)
-            data.success && setIsLoggedin(false);
-            data.success && setUserData(false);
-            navigate('/')
-
-        } catch (error) {
+            if(data.success){
+                setIsLoggedin(false);
+                setUserData(false);
+                navigate('/')
+                toast("You are Logout succesfully")
+            }
+            
+             } catch (error) {
             toast.error(error.message)
         }
     }
@@ -87,9 +89,9 @@ const Navbar = () => {
 
             {!userData.isAccountVerified && <li onClick={sendVerificationOtp} className=' border border-white px-2 py-1 '>Verify email</li>}    
             
-            <li  className='border hover:bg-slate-300 hover:text-black transition-all duration-300 rounded shadow shadow-white border-white px-2 py-1' onClick={logout} >Logout <i class="fa-solid fa-right-from-bracket"></i> </li>
+            <li  className='flex items-center  justify-between border hover:bg-slate-300 hover:text-black transition-all duration-300 rounded shadow shadow-white border-white px-2 py-1' onClick={logout} >Logout <i class="fa-solid fa-right-from-bracket"></i> </li>
             </ul> 
-            </div> </div> :  <button onClick={()=>navigate('/login')} className='flex items-center gap-2 border hover:bg-slate-300 hover:text-black transition-all duration-300 rounded shadow shadow-white border-gray-500 rounded-full px-6 py-2 hover:bg-gray-100 transition-all '>Login <img src={assets.arrow_icon} alt="" /> </button> }
+            </div> </div> :  <button onClick={()=>navigate('/login')} className='flex items-center gap-2 border hover:bg-slate-400 hover:text-black transition-all duration-300 rounded-md shadow shadow-white border-gray-500  px-6 py-2 '>Login <img src={assets.arrow_icon} alt="" /> </button> }
            
          </div>
          <hr className='border border-gray-300' />
