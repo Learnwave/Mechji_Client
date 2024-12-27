@@ -16,13 +16,13 @@ const Shopcard = () => {
         <div className='w-full grid grid-cols-auto gap-4 pt-5  sm:px-0'>
             {
                 shops.map((item,index)=>(
-                    <div onClick={()=>navigate(`/store/${item._id}`)} className='border flex flex-col border-black rounded-xl overflow-hidden cursor-pointer hover:translate-y-[-10px]  transition-all duration-500 shadow-sm  shadow-gray-500 ' key={index}>
+                    <div onClick={()=>navigate(`/store/${item._id}`)} className='border flex flex-col border-black rounded-xl overflow-hidden cursor-pointer hover:translate-y-[-10px]   transition-all duration-500 shadow-sm  shadow-gray-500 ' key={index}>
                         <img className='bg-blue-50 h-40  p-0.5 rounded-xl ' src={item.image} alt="" />
                         <div className='p-4 flex flex-col gap-2'>
                             <div className="flex items-center gap-2 text-sm text-center text-green-500">
                                 <p className='w-2 h-2 bg-green-500 rounded-full'></p><p>Available</p>
                             </div>
-                            <p className='text-gray-900 text-lg font-medium '>{item.name}</p>
+                            <p className='text-gray-900 text-sm w-full font-medium '>{item.name}</p>
                             <p className='text-gray-600 text-sm'>{item.category}</p>
                             <button className='border border-gray-500 rounded-md px-2 text-sm py-1 bg-black text-white'>Visit {item.visitOnText} </button>
                         </div>
