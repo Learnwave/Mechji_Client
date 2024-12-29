@@ -12,6 +12,9 @@ import Store from "./components/Store";
 import Product from "./pages/Product";
 import Footer from "./components/Footer";
 import UserProfile from "./pages/UserProfile";
+import MyOrder from "./pages/MyOrder";
+import CreateSpace from "./pages/CreateSpace";
+import InstallApp from "./pages/InstallApp";
 const App = () => {
   return (
     <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] ">
@@ -33,6 +36,11 @@ const App = () => {
         <Route path="/product/:productId" element={<Product/>} />
 
         <Route path="/profile" element={<UserProfile/>} />
+
+        <Route path="/my-orders" element={<MyOrder/>}/>
+        <Route path="/create-space" element={<CreateSpace/>}/>
+        <Route path="/install-app" element={<InstallApp/>}/>
+
       </Routes>
 
       <hr  className='my-5 border-0.5 border-gray-400 shadow'/>

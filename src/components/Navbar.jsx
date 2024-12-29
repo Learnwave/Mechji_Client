@@ -83,9 +83,9 @@ const Navbar = () => {
             <ul className='border w-48 border-black list-none m-1 p-2 rounded-md  bg-black text-white text-sm cursor-pointer flex flex-col gap-3 '> 
                 <li className='text-xl'> Hi! {userData.name} <br /> <p onClick={()=>navigate("/profile")} className='text-sm text-indigo-200'>View Profile</p> </li>
                 
-                <p className='border hover:bg-slate-300 hover:text-black transition-all duration-300 rounded shadow shadow-white border-white px-2 py-1'>My Orders</p>
-                <p className='border hover:bg-slate-300 hover:text-black transition-all duration-300 rounded shadow shadow-white border-white px-2 py-1'>Create Space <br /> <span className='text-xs'>Sell Anything here</span> </p>
-                <p className='border hover:bg-slate-300 hover:text-black transition-all duration-300 rounded shadow shadow-white border-white px-2 py-1'>Install Mechji App </p>
+                <p onClick={()=>navigate('/my-orders')} className='border hover:bg-slate-300 hover:text-black transition-all duration-300 rounded shadow shadow-white border-white px-2 py-1'>My Orders</p>
+                <p onClick={()=>navigate('/create-space')} className='border hover:bg-slate-300 hover:text-black transition-all duration-300 rounded shadow shadow-white border-white px-2 py-1'>Create Space <br /> <span className='text-xs'>Sell Anything here</span> </p>
+                <p onClick={()=>navigate('/install-app')} className='border hover:bg-slate-300 hover:text-black transition-all duration-300 rounded shadow shadow-white border-white px-2 py-1'>Install Mechji App </p>
 
 
             {!userData.isAccountVerified && <li onClick={sendVerificationOtp} className=' border border-white px-2 py-1 '>Verify email</li>}    
