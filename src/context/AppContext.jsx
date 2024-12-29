@@ -10,16 +10,24 @@ export const AppContextProvider = (props)=>{
 
         axios.defaults.withCredentials = true
         const backendUrl = import.meta.env.VITE_BACKEND_URL
+        
+        const [token,setToken] = useState("");
+        
         const [isLoggedin, setIsLoggedin] = useState(false);
         const [password,setPassword] = useState("");
         const [userData, setUserData] = useState(false);
         const currencySymbol = "$"
-        const getAuthState = async ()=>{
+        const getLoginState = async ()=>{
             try {
-                const {data} = await axios.get(backendUrl+"/api/auth/isAuth")
-                if (data.success) {
+            const loginToken = localStorage.getItem('token')
+                if (loginToken) {
+                    console.log("firest");
+                    
                     setIsLoggedin(true);
                     getUserData();
+                }else{
+                    console.log("secion");
+                    
                 }
             } catch (error) {
                 toast.error(error.message)
@@ -29,18 +37,18 @@ export const AppContextProvider = (props)=>{
         const getUserData = async ()=> {
             try {
                 const {data} = await axios.get(backendUrl+"/api/user/data");
-                data.success ? setUserData(data.userData) : toast.error(data.message)
+                data.success ? setUserData(data.userData) : toast(data.message)
             } catch (error) {
                 toast.error(error.message)
             }
         }
 
         useEffect(()=>{
-            getAuthState();
+            getLoginState();
         },[])
 
         const value = {
-            backendUrl,isLoggedin,setIsLoggedin,setUserData,userData,getUserData,password,setPassword,shops,currencySymbol,products
+            backendUrl,isLoggedin,setIsLoggedin,setUserData,userData,getUserData,password,setPassword,shops,currencySymbol,products,token,setToken
         }
 
         return(

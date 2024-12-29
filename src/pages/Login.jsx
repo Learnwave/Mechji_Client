@@ -11,7 +11,7 @@ const Login = () => {
     const [passView,setPassView] = useState('password')
     const navigate = useNavigate('')
 
-    const {backendUrl,setIsLoggedin, isLoggedin ,getUserData,setPassword,password} = useContext(AppContent);
+    const {backendUrl,setIsLoggedin, isLoggedin ,getUserData,setPassword,password,token,setToken} = useContext(AppContent);
 
     const passwordView = ()=> {
         if(passView === "password"){
@@ -20,8 +20,8 @@ const Login = () => {
             setPassView("password")
         }
     }
-   
-    const onSubmitHandler = async (e)=>{
+
+  const onSubmitHandler = async (e)=>{
         try {
             e.preventDefault();
             axios.defaults.withCredentials = true 
@@ -29,6 +29,8 @@ const Login = () => {
                 const {data} =  await axios.post(backendUrl+'/api/auth/register',{name,email,password});
                 if(data.success){
                     setIsLoggedin(true);
+                    setToken(data.token)
+                    localStorage.setItem('token',data.token);
                     getUserData();
                     navigate('/')
                 }else{
@@ -36,14 +38,17 @@ const Login = () => {
                 }
             }else{
                 const {data} =  await axios.post(backendUrl+'/api/auth/login',{email,password});
-                console.log(data)
+                
                 if(data.success){
                     setIsLoggedin(true);
+                    setToken(data.token);
+                    localStorage.setItem('token',data.token);
                     getUserData();
                     navigate("/")
+                    
                 }else{
-                    data.
-                    toast.error(error.message);
+                    
+                    toast.error(data.message);
                 }
 
             }

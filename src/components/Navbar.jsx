@@ -33,6 +33,7 @@ const Navbar = () => {
                 setIsLoggedin(false);
                 setUserData(false);
                 navigate('/')
+                localStorage.removeItem('token')
                 toast("You are Logout succesfully")
             }
             
