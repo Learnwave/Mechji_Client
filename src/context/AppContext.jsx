@@ -21,9 +21,7 @@ export const AppContextProvider = (props)=>{
             try {
             const loginToken = localStorage.getItem('token')
                 if (loginToken) {
-                    console.log("firest");
-                    
-                    setIsLoggedin(true);
+                   
                     getUserData();
                 }else{
                     console.log("secion");
@@ -37,7 +35,14 @@ export const AppContextProvider = (props)=>{
         const getUserData = async ()=> {
             try {
                 const {data} = await axios.get(backendUrl+"/api/user/data");
-                data.success ? setUserData(data.userData) : toast(data.message)
+                
+                if (data.success) {
+                    setUserData(data.userData)
+                    setIsLoggedin(true)
+                }else{
+                    setIsLoggedin(false)
+                }
+
             } catch (error) {
                 toast.error(error.message)
             }
