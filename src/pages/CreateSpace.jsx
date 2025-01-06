@@ -1,18 +1,75 @@
 import React, { useContext, useState } from "react";
 import {assets} from '../assets/assets_admin/assets.js'
 import { AppContent } from "../context/AppContext.jsx";
+import { toast } from "react-toastify";
+import axios from "axios";
 
 const CreateSpace = () => {
 
-  const {isLoggedin} = useContext(AppContent)
+  const {isLoggedin,backendUrl,token} = useContext(AppContent)
 
   const [sell, setSell] = useState("Goods");
   const [state,setState] = useState("Punjab")
   const[country,setCountry] = useState('India')
-  const [proImg,setProImg] = useState(false);
-  
 
   const [file, setFile] = useState([]);
+  const [bname,setBname] = useState("");
+  const [email,setEmail] = useState("");
+  const [phoneNumber,setPhoneNumber] = useState("");
+  const [sellOption,setSellOption] = useState("");
+  const [category,setCategory] = useState("");
+  const [subCategory,setSubCategory] = useState("");
+  const [addresss,setAddress] = useState("");
+  const [workingRange,setWorkingRange] = useState("");
+  const [serviceCharges,setServicesCharges] = useState("");
+  const [password,setPassword] = useState("");
+  const [about,setAbout] = useState("");
+
+    
+    
+  const onSubmitHandler = async (event) => {
+          event.preventDefault()
+    try {
+      if (file.length === 0) {
+          return toast.error("Image Not Selected")
+      }
+      const formData = new FormData();
+      formData.append('image',file)
+      formData.append('bname',bname)
+      formData.append('email',email)
+      formData.append('password',password)
+      formData.append('phoneNumber',phoneNumber)
+      formData.append('sellOption',sellOption)
+      formData.append('category',category)
+      formData.append('subCategory',subCategory)
+      formData.append('addresss',addresss)
+      formData.append('workingRange',workingRange)
+      formData.append('serviceCharges',serviceCharges)
+      
+     const {data} = await axios.post(backendUrl + "/api/admin/add-shop",formData)
+      
+      if (data.success) {
+          toast.success(data.message)
+         
+
+          
+      }else{
+          toast.error(data.message)
+      }
+      
+
+  } catch (error) {
+      toast.error(error)
+      console.log(error)
+  }
+
+ 
+  }
+
+
+  
+
+  
 
   function uploadSingleFile(e) {
     setFile([...file, URL.createObjectURL(e.target.files[0])]);
@@ -42,7 +99,7 @@ const CreateSpace = () => {
           anything – from unique goods to professional services.
         </h1>
 
-        <form className="mt-10 mb-10 flex  flex-col  ">
+        <form onSubmit={onSubmitHandler} className="mt-10 mb-10 flex  flex-col  ">
           <div className="flex flex-col flex-wrap p-2 items-center justify-start  gap-4">
             <div className="flex gap-2 w-1/2 flex-col">
               
@@ -97,7 +154,7 @@ const CreateSpace = () => {
               <div className=" flex flex-col gap-1">
                 <label htmlFor="title">Your business name</label>
                 <div className="border border-black rounded-sm p-2 ">
-                  <input  required
+                  <input  required onChange={(e)=>setBname(e.target.value)} value={bname}
                     className="bg-transparent outline-none w-full text-sm"
                     placeholder="Enter your business name"
                     type="text"
@@ -111,9 +168,10 @@ const CreateSpace = () => {
                 <label htmlFor="title">Enter Phone Number</label>
                 <div className="border border-black rounded-sm p-2 ">
                   <input
+                    onChange={(e)=>setPhoneNumber(e.target.value)} value={phoneNumber}
                     className="bg-transparent outline-none w-full text-sm"
                     placeholder="Enter Phone Number"
-                    type="text"
+                    type="number"
                     name=""
                     id=""
                   />
@@ -126,9 +184,10 @@ const CreateSpace = () => {
                   <input  required
                     className="bg-transparent outline-none w-full text-sm"
                     placeholder="Enter Your Email-address"
-                    type="text"
+                    type="email"
                     name=""
                     id=""
+                    onChange={(e)=>setEmail(e.target.value) } value={email}
                   />
                 </div>
               </div>
@@ -139,9 +198,10 @@ const CreateSpace = () => {
                   <input  required
                     className="bg-transparent outline-none w-full text-sm"
                     placeholder="Enter your address or pin on map"
-                    type="text"
+                    type="address"
                     name=""
                     id=""
+                    onChange={(e)=>setAddress(e.target.value) } value={addresss}
                   />
                   <i className=" cursor-pointer fa-solid fa-map-pin"></i>
                 </div>
@@ -179,6 +239,7 @@ const CreateSpace = () => {
                     className="w-full bg-transparent outline-none"
                     name=""
                     id=""
+                    onChange={(e)=>setCategory(e.target.value) } value={category}
                   >
                     {
                      (sell === "Both" || sell === "Goods" ) ?  <option value="Shoping-stores">Shoping-stores</option> :<></>
@@ -208,6 +269,7 @@ const CreateSpace = () => {
                     type="text"
                     name=""
                     id=""
+                    onChange={(e)=>setSubCategory(e.target.value) } value={subCategory}
                   />
                 </div>
               </div>
@@ -221,6 +283,7 @@ const CreateSpace = () => {
                     className="w-full bg-transparent outline-none"
                     name=""
                     id=""
+                    onChange={(e)=>setWorkingRange(e.target.value) } value={workingRange}
                   >
                     <option value="25-Km">25-Km</option>
                     <option value="50-Km">50-Km</option>
@@ -246,6 +309,7 @@ const CreateSpace = () => {
                     type="number"
                     name=""
                     id=""
+                    onChange={(e)=>setServicesCharges(e.target.value) } value={serviceCharges}
                   />
                 </div>
               </div> : <></> 
@@ -260,10 +324,25 @@ const CreateSpace = () => {
                     type="password"
                     name=""
                     id=""
+                    onChange={(e)=>setPassword(e.target.value) } value={password}
                   />
                  
                 </div>
               </div>
+
+              <div>
+          <p className="mt-4 mb-2 ">Write about your business</p>
+          <textarea className="w-full px-4 pt-2 border bg-transparent border-black rounded "
+            type="text"
+            
+            onChange={(e)=>setAbout(e.target.value)} value={about}
+            placeholder="Write about your business"
+            rows={5}
+            required
+            name=""
+            id=""
+          />
+        </div>
 
 
               </div>   
