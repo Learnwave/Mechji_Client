@@ -47,7 +47,7 @@ const CreateSpace = () => {
     "Puducherry" // Union Territory
   ];
   
-  const { isLoggedin, backendUrl, token ,setStoreActive,storeActive } = useContext(AppContent);
+  const { isLoggedin, backendUrl, token ,storeActive } = useContext(AppContent);
 
   const [files, setFiles] = useState([]); // Store selected files
   const [previewImages, setPreviewImages] = useState([]); // For previewing selected images
@@ -124,7 +124,7 @@ const CreateSpace = () => {
       if (data.success) {
         toast.success(data.message);
         navigate("/under-review")
-        setStoreActive(true)
+       
 
        
       } else {
