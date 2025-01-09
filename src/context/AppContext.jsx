@@ -12,16 +12,20 @@ export const AppContextProvider = (props)=>{
         const backendUrl = import.meta.env.VITE_BACKEND_URL
         
         const [token,setToken] = useState("");
+        const [storeActive,setStoreActive] = useState("");
+        console.log(storeActive);
         
+       
         const [isLoggedin, setIsLoggedin] = useState(false);
         const [password,setPassword] = useState("");
         const [userData, setUserData] = useState(false);
         const currencySymbol = "$"
+        
         const getLoginState = async ()=>{
             try {
             const loginToken = localStorage.getItem('token')
                 if (loginToken) {
-                   
+                   setToken(loginToken)
                     getUserData();
                 }else{
                     console.log("secion");
@@ -39,6 +43,7 @@ export const AppContextProvider = (props)=>{
                 if (data.success) {
                     setUserData(data.userData)
                     setIsLoggedin(true)
+                    setStoreActive(data.userData.storeActiveStatus)
                 }else{
                     setIsLoggedin(false)
                 }
@@ -53,7 +58,8 @@ export const AppContextProvider = (props)=>{
         },[])
 
         const value = {
-            backendUrl,isLoggedin,setIsLoggedin,setUserData,userData,getUserData,password,setPassword,shops,currencySymbol,products,token,setToken
+            backendUrl,isLoggedin,setIsLoggedin,setUserData,userData,getUserData,password,setPassword,shops,currencySymbol,products,token,setToken,
+            storeActive,setStoreActive,
         }
 
         return(

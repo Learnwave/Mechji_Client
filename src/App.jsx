@@ -15,6 +15,7 @@ import UserProfile from "./pages/UserProfile";
 import MyOrder from "./pages/MyOrder";
 import CreateSpace from "./pages/CreateSpace";
 import InstallApp from "./pages/InstallApp";
+import Dashboard from "./pages/Dashboard";
 const App = () => {
   return (
     <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] ">
@@ -22,8 +23,10 @@ const App = () => {
        
       <Navbar/>
       <Routes>
+        
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+
         <Route path="/verify-email" element={<VerifyEmail />} />
         <Route path="/reset-password" element={<ResetPassword />} />
 
@@ -39,7 +42,10 @@ const App = () => {
 
         <Route path="/my-orders" element={<MyOrder/>}/>
         <Route path="/create-space" element={<CreateSpace/>}/>
+
         <Route path="/install-app" element={<InstallApp/>}/>
+        <Route path="/dashboard" element={<Dashboard/>}/>
+
 
       </Routes>
 

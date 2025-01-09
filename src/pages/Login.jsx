@@ -34,7 +34,7 @@ const Login = () => {
                     getUserData();
                     navigate('/')
                 }else{
-                    toast.error(error.message);
+                    toast.error(data.message);
                 }
             }else{
                 const {data} =  await axios.post(backendUrl+'/api/auth/login',{email,password});
@@ -67,16 +67,16 @@ const Login = () => {
           
           <form onSubmit={onSubmitHandler} className='flex flex-col gap-3' >
             {state === "Sign Up"  && (<div className=' rounded  flex items-center gap-2 w-full px-5 py-2.5  border border-gray-500'>
-                     <i class="fa-solid fa-user w-4 text-black"></i>
+                     <i className="fa-solid fa-user w-4 text-black"></i>
                     <input onChange={(e)=>setName(e.target.value)} value={name} className='w-full   bg-transparent outline-none text-black ' type="text" placeholder='Full-name' required name="" id="" />
                 </div>)}
                 
                 <div className=' flex items-center gap-3 w-full px-5 py-2.5 rounded border border-gray-500'>
-                     <i class="fa-solid fa-envelope text-black"></i>
+                     <i className="fa-solid fa-envelope text-black"></i>
                     <input onChange={(e)=>setEmail(e.target.value)} value={email} className='w-full  bg-transparent outline-none text-black' type="email" placeholder='Email-id' required name="" id="" />
                 </div>
                 <div className=' flex items-center gap-3 w-full px-5 py-2.5 rounded border border-gray-500'>
-                     <i class="fa-solid fa-lock text-black"></i>
+                     <i className="fa-solid fa-lock text-black"></i>
                     <input onChange={(e)=>setPassword(e.target.value)} value={password} className='w-full  bg-transparent outline-none text-black  flex-grow ' type={passView} placeholder='Password' required name="" id="" />
                     <img onClick={passwordView} className=' w-5  cursor-pointer' src={assets.eye_slash} alt="" />
                 </div>
@@ -86,9 +86,9 @@ const Login = () => {
                     <button className='w-full py-2.5 rounded border text-lg border-white text-white bg-black font-medium hover:bg-gray-800'>{state}</button>
                     <p className='text-xs text-black text-center  '>Or login with</p>
                     <div className='flex items-center justify-between'>
-                        <button type='button' className='text-black  flex flex-col cursor-pointer text-xs gap-1'>  <i class="fa-brands cursor-pointer text-3xl self-center text-black  fa-google"></i>Google</button>
-                       <button type='button' className='text-black  flex flex-col cursor-pointer text-xs gap-1'> <i class="fa-brands cursor-pointer text-3xl self-center text-black  fa-facebook"></i>Facebook</button>
-                        <button type='button' className='text-black  flex flex-col cursor-pointer text-xs gap-1'> <i class="fa-brands cursor-pointer text-3xl self-center text-black  fa-apple"></i>Apple</button>
+                        <button type='button' className='text-black  flex flex-col cursor-pointer text-xs gap-1'>  <i className="fa-brands cursor-pointer text-3xl self-center text-black  fa-google"></i>Google</button>
+                       <button type='button' className='text-black  flex flex-col cursor-pointer text-xs gap-1'> <i className="fa-brands cursor-pointer text-3xl self-center text-black  fa-facebook"></i>Facebook</button>
+                        <button type='button' className='text-black  flex flex-col cursor-pointer text-xs gap-1'> <i className="fa-brands cursor-pointer text-3xl self-center text-black  fa-apple"></i>Apple</button>
                         
                     </div>
                 </div>

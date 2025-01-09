@@ -6,7 +6,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 const Navbar = () => {
     const navigate = useNavigate();
-    const {userData,backendUrl,setUserData,setIsLoggedin} = useContext(AppContent);
+    const {userData,backendUrl,setUserData,setIsLoggedin,storeActive} = useContext(AppContent);
 
     const sendVerificationOtp = async ()=> {
         try {
@@ -55,7 +55,7 @@ const Navbar = () => {
 
             <div className="nav_center hidden sm:flex  gap-3 items-center justify-between flex-grow-1 w-full">
                     <div className='flex gap-2 items-center w-1/2  h-10 border border-black rounded px-2 '>
-                          <i class="fa-solid fa-location-crosshairs w-3"></i>
+                          <i className="fa-solid fa-location-crosshairs w-3"></i>
                         <input className='w-full bg-transparent text-sm p-1 outline-none' type="text" placeholder='India' name="location" id="location" />
                     </div>
                     <div className='w-full flex items-center h-10  border border-black rounded  '>
@@ -71,12 +71,12 @@ const Navbar = () => {
             {/* cart container */}
 
             <div>
-                 <i class="fa-solid cursor-pointer fa-cart-plus w-8"></i>
+                 <i className="fa-solid cursor-pointer fa-cart-plus w-8"></i>
             </div>
             {/* notification container */}
 
             <div>
-                <i class="fa-solid cursor-pointer fa-envelope w-8"></i>
+                <i className="fa-solid cursor-pointer fa-envelope w-8"></i>
             </div>
 
         {userData ? <div className=' p-2 w-10 flex justify-center items-center rounded-full bg-black text-white relative group '> {userData.name[0].toUpperCase()} <div className=' absolute hidden group-hover:block top-0 right-0 z-10 text-black rounded pt-10' > 
@@ -84,13 +84,17 @@ const Navbar = () => {
                 <li className='text-xl'> Hi! {userData.name} <br /> <p onClick={()=>navigate("/profile")} className='text-sm text-indigo-200'>View Profile</p> </li>
                 
                 <p onClick={()=>navigate('/my-orders')} className='border hover:bg-slate-300 hover:text-black transition-all duration-300 rounded shadow shadow-white border-white px-2 py-1'>My Orders</p>
-                <p onClick={()=>navigate('/create-space')} className='border hover:bg-slate-300 hover:text-black transition-all duration-300 rounded shadow shadow-white border-white px-2 py-1'>Create Space <br /> <span className='text-xs'>Sell Anything here</span> </p>
+                {
+                    storeActive === "" ? <p onClick={()=>navigate('/create-space')} className='border hover:bg-slate-300 hover:text-black transition-all duration-300 rounded shadow shadow-white border-white px-2 py-1'>Create Space <br /> <span className='text-xs'>Sell Anything here</span> </p>
+                    : <p onClick={()=>navigate('/dashboard')} className='border hover:bg-slate-300 hover:text-black transition-all duration-300 rounded shadow shadow-white border-white px-2 py-1'>View Dashborad <br /> <span className='text-xs'>Manage your businss</span> </p>
+                }
+
                 <p onClick={()=>navigate('/install-app')} className='border hover:bg-slate-300 hover:text-black transition-all duration-300 rounded shadow shadow-white border-white px-2 py-1'>Install Mechji App </p>
 
 
             {!userData.isAccountVerified && <li onClick={sendVerificationOtp} className=' border border-white px-2 py-1 '>Verify email</li>}    
             
-            <li  className='flex items-center  justify-between border hover:bg-slate-300 hover:text-black transition-all duration-300 rounded shadow shadow-white border-white px-2 py-1' onClick={logout} >Logout <i class="fa-solid fa-right-from-bracket"></i> </li>
+            <li  className='flex items-center  justify-between border hover:bg-slate-300 hover:text-black transition-all duration-300 rounded shadow shadow-white border-white px-2 py-1' onClick={logout} >Logout <i className="fa-solid fa-right-from-bracket"></i> </li>
             </ul> 
             </div> </div> :  <button onClick={()=>navigate('/login')} className='flex items-center gap-2 border hover:bg-slate-400 hover:text-black transition-all duration-300 rounded-md shadow shadow-white border-gray-500  px-6 py-2 '>Login <img src={assets.arrow_icon} alt="" /> </button> }
            
