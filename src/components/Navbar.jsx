@@ -24,6 +24,16 @@ const Navbar = () => {
         }
     }
 
+    const handleNavigation = () => {
+        if (storeActive === "Under_Review") {
+            navigate("/under-review")
+        }else if (storeActive === "Rejected") {
+            navigate("/profile-rejected")
+        }else{
+            navigate("/dashboard")
+        }
+    }
+
     const logout = async ()=>{
         try {
             
@@ -86,7 +96,7 @@ const Navbar = () => {
                 <p onClick={()=>navigate('/my-orders')} className='border hover:bg-slate-300 hover:text-black transition-all duration-300 rounded shadow shadow-white border-white px-2 py-1'>My Orders</p>
                 {
                     storeActive === "" ? <p onClick={()=>navigate('/create-space')} className='border hover:bg-slate-300 hover:text-black transition-all duration-300 rounded shadow shadow-white border-white px-2 py-1'>Create Space <br /> <span className='text-xs'>Sell Anything here</span> </p>
-                    : <p onClick={()=>navigate('/dashboard')} className='border hover:bg-slate-300 hover:text-black transition-all duration-300 rounded shadow shadow-white border-white px-2 py-1'>View Dashborad <br /> <span className='text-xs'>Manage your businss</span> </p>
+                    : <p onClick={handleNavigation} className='border hover:bg-slate-300 hover:text-black transition-all duration-300 rounded shadow shadow-white border-white px-2 py-1'>View Dashborad <br /> <span className='text-xs'>Manage your businss</span> </p>
                 }
 
                 <p onClick={()=>navigate('/install-app')} className='border hover:bg-slate-300 hover:text-black transition-all duration-300 rounded shadow shadow-white border-white px-2 py-1'>Install Mechji App </p>

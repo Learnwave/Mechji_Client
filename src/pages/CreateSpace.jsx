@@ -123,7 +123,7 @@ const CreateSpace = () => {
 
       if (data.success) {
         toast.success(data.message);
-        navigate("/dashboard")
+        navigate("/under-review")
         setStoreActive(true)
 
        

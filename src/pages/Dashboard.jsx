@@ -1,14 +1,33 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from 'react'
 import { AppContent } from "../context/AppContext";
-
+import { useParams } from 'react-router-dom'
+import { assets } from '../assets/assets_frontend/assets';
+import Products_Items from '../components/Products_Items';
 
 const Dashboard = () => {
-  const { storeActive, userData } = useContext(AppContent);
-  return (
+  const { storeActive,products,shops,currencySymbol} = useContext(AppContent);
+
+const {storeId} = useParams();
+   
+    const [shopInfo,setShopinfo] = useState([]);
+
+    const fetchShopInfo = async () => {
+        setShopinfo(shops[0]);
+        console.log(shopInfo)
+    }
+
+    useEffect(()=>{
+        fetchShopInfo();
+       
+        },[storeId ,shops])
+        
+
+  return  (
     <div className="flex">
       <div>
-          {
-              storeActive === "Active" ? <div> <div className='mt-6'>
+          <div> 
+                
+              <div className='mt-6'>
 
               {/* Shop details */}
               <div className='flex flex-col sm:flex-row gap-4'>
@@ -64,87 +83,11 @@ const Dashboard = () => {
        
              {/* left menu section of div */}
             
-                      <ReletedShop category={shopInfo.category} storeId={storeId}  />   
-           </div></div> : <></>
-            }
+                      
+           </div>
+           </div> 
+          
       </div>
-     
-
-      {storeActive === "Under_Review" ?  <div className="flex flex-col gap-4 items-center text-center mt-10 mb-10">
-          <h1 className="text-2xl font-bold">
-            Welcome to Mechji ! Your Business Profile is Under Review
-          </h1>
-          Hi {userData.name},
-          <p>
-            Thank you for joining Mechji and creating your business profile!
-            We’re excited to have you on board and are currently reviewing the
-            details you submitted. This process helps us ensure a high-quality
-            experience for all users on our platform.
-          </p>
-          <h1>What Happens Next?</h1>
-          <p>
-            Our team will carefully review your business profile within 24–48
-            hours.
-          </p>
-          <p>
-            Once the review is complete, we’ll notify you via email about the
-            status of your profile.
-          </p>
-          <p>
-            In the meantime, if you have any questions or need assistance, feel
-            free to reach out to us at support@mechji.com or visit our{" "}
-            <b className="text-indigo-700 cursor-pointer">Help Center link.</b>
-            Thank you for your patience and for choosing our business profile to
-            grow your business. Warm regards, The{" "}
-            <b className="text-indigo-700 cursor-pointer">www.mechji.com</b>
-            Team
-          </p>
-        </div> : <></>}
-
-      {storeActive === "Rejected" ? (
-        (
-            <div className="flex flex-col gap-4 items-center text-center mt-10 mb-10">
-              <h1 className="text-2xl font-bold">
-                Action Required: Your Business Profile Submission
-              </h1>
-              Hi {userData.name},
-              <p>
-                Thank you for submitting your business profile on Mechji . We
-                appreciate your interest in joining our platform and sharing your
-                business with our community.
-              </p>
-              <h1>What Happens Next?</h1>
-              <p>
-                Upon reviewing your submission, we noticed some issues with the
-                provided information, which unfortunately did not meet our
-                verification criteria. For this reason, we are unable to approve
-                your business profile at this time.
-              </p>
-              <p>Here are the reasons why your profile could not be approved:</p>
-              <p>
-                Once the review is complete, we’ll notify you via email about the
-                status of your profile.
-              </p>
-              <p>
-                We kindly request you to review and update the necessary information
-                to ensure your profile complies with our guidelines. You can
-                resubmit your business details by following these steps:
-              </p>
-              <p>Log in to your account .</p>
-              <p>Navigate to the Edit Business Profile section.</p>
-              <p>Correct the identified issues and submit the updated profile for review.</p>
-              <p>
-                In the meantime, if you have any questions or need assistance, feel
-                free to reach out to us at support@mechji.com or visit our{" "}
-                <b className="text-indigo-700 cursor-pointer">Help Center link.</b>
-                Thank you for your patience and for choosing our business profile to
-                grow your business. Warm regards, The{" "}
-                <b className="text-indigo-700 cursor-pointer">www.mechji.com</b>
-                Team
-              </p>
-            </div>
-          )
-      ) : <></>}
      
     </div>
   );

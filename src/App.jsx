@@ -16,6 +16,8 @@ import MyOrder from "./pages/MyOrder";
 import CreateSpace from "./pages/CreateSpace";
 import InstallApp from "./pages/InstallApp";
 import Dashboard from "./pages/Dashboard";
+import UnderReview from "./components/UnderReview";
+import ProfileRejected from "./components/ProfileRejected";
 const App = () => {
   return (
     <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] ">
@@ -45,6 +47,9 @@ const App = () => {
 
         <Route path="/install-app" element={<InstallApp/>}/>
         <Route path="/dashboard" element={<Dashboard/>}/>
+
+        <Route path="/under-review" element={<UnderReview/>}/>
+        <Route path="/profile-rejected" element={<ProfileRejected/>}/>
 
 
       </Routes>

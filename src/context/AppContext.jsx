@@ -5,7 +5,7 @@ import { shops } from "../assets/assets_frontend/assets";
 import { products } from "../assets/assets_products/frontend_assets/assets";
 
 export const AppContent = createContext();
-
+           
 export const AppContextProvider = (props)=>{
 
         axios.defaults.withCredentials = true
