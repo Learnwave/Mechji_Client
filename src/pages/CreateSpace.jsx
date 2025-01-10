@@ -47,7 +47,7 @@ const CreateSpace = () => {
     "Puducherry" // Union Territory
   ];
   
-  const { isLoggedin, backendUrl, token ,storeActive } = useContext(AppContent);
+  const { isLoggedin, backendUrl, token ,storeActive,setStoreActive } = useContext(AppContent);
 
   const [files, setFiles] = useState([]); // Store selected files
   const [previewImages, setPreviewImages] = useState([]); // For previewing selected images
@@ -57,16 +57,19 @@ const CreateSpace = () => {
   const [bname, setBname] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [sell, setSell] = useState("Goods");
-  const [category, setCategory] = useState("Shoping-store");
-  const [subCategory, setSubCategory] = useState("");
+  const [businessCategory, setBusinessCategory] = useState(["Shoping-store"]);
+
+  const [dealsInGoods, setDealsInGoods] = useState([""]);
+  const [dealsInServices, setDealsInServices] = useState([""]);
   const [street, setStreet] = useState("");
   const [city, setCity] = useState("");
+
   const [pincode, setPincode] = useState("");
   const [state, setState] = useState("Andhra Pradesh");
-  const [country, setCountry] = useState("india");
-  const [workingRange, setWorkingRange] = useState("25-Km");
+  // const [country, setCountry] = useState("india");
+  const [workingRange, setWorkingRange] = useState("25Km");
   const [serviceCharges, setServicesCharges] = useState("0");
-  const [password, setPassword] = useState("");
+  
   const [about, setAbout] = useState("");
   
   const navigate = useNavigate();
@@ -89,23 +92,24 @@ const CreateSpace = () => {
       }
       const formData = new FormData();
 
-      files.forEach((file, index) => {
+      files.forEach((file) => {
         formData.append("images", file); // Backend key name is 'images'
       });
 
       formData.append("bname", bname);
       formData.append("phoneNumber", phoneNumber);
-      formData.append("password", password);
+      // formData.append("password", password);
       formData.append("sellOptions", sell);
-      formData.append("category", category);
+      formData.append("businessCategory", businessCategory);
 
       formData.append("street", street);
       formData.append("city", city);
       formData.append("pincode", pincode);
       formData.append("state", state);
-      formData.append("country", country);
+      // formData.append("country", country);
 
-      formData.append("subCategory", subCategory);
+      formData.append("dealsInGoods", dealsInGoods);
+      formData.append("dealsInServices", dealsInServices);
       formData.append("workingRange", workingRange);
       formData.append("serviceCharges", serviceCharges);
       formData.append("about", about);
@@ -124,7 +128,7 @@ const CreateSpace = () => {
       if (data.success) {
         toast.success(data.message);
         navigate("/under-review")
-       
+        setStoreActive("Under_Review")
 
        
       } else {
@@ -202,14 +206,14 @@ const CreateSpace = () => {
                 </div>
 
                 <div className=" flex flex-col gap-1">
-                  <label htmlFor="title">Your phone number</label>
+                  <label htmlFor="title">Your contact number</label>
                   <div className="border border-black rounded-sm p-2 ">
                     <input
                       required
                       onChange={(e) => setPhoneNumber(e.target.value)}
                       value={phoneNumber}
                       className="bg-transparent outline-none w-full text-sm"
-                      placeholder="Enter your phone number"
+                      placeholder="Enter your contact number"
                       type="text"
                       name=""
                       id=""
@@ -218,7 +222,7 @@ const CreateSpace = () => {
                 </div>
 
                 <div className=" flex flex-col gap-1">
-                  <label htmlFor="address">Enter your address</label>
+                  <label htmlFor="address">Enter your business address</label>
                   <div className="flex gap-1">
 
                   <div className="flex justify-center  border border-black rounded-sm p-2 ">
@@ -306,15 +310,15 @@ const CreateSpace = () => {
 
                 <div className="w-full flex gap-2 flex-col">
                   <div>
-                    <label htmlFor="business Type">Category</label>
+                    <label htmlFor="business Type">Choose your business category</label>
                     <div className="border border-black rounded-sm p-2 ">
                       <select
                         required
                         className="w-full bg-transparent outline-none"
                         name=""
                         id=""
-                        onChange={(e) => setCategory(e.target.value)}
-                        value={category}
+                        onChange={(e) => setBusinessCategory(e.target.value)}
+                        value={businessCategory}
                       >
                         {sell === "Both" || sell === "Goods" ? (
                           <option value="Shoping-stores">Shoping-stores</option>
@@ -342,22 +346,69 @@ const CreateSpace = () => {
                       </select>
                     </div>
                   </div>
+                  {
 
+                  sell === "Services" ? <></> :
                   <div className=" flex flex-col gap-1">
-                    <label htmlFor="title">Sub-category</label>
+                    <label htmlFor="title">What types of goods do you deal with?</label>
                     <div className="border border-black rounded-sm p-2 ">
                       <input
                         required
                         className="bg-transparent outline-none w-full text-sm"
-                        placeholder="Enter your sub-category"
+                        placeholder="ex. grocery,mobiles,tv,ac etc"
                         type="text"
                         name=""
                         id=""
-                        onChange={(e) => setSubCategory(e.target.value)}
-                        value={subCategory}
+                        onChange={(e) => setDealsInGoods(e.target.value)}
+                        value={dealsInGoods}
                       />
                     </div>
                   </div>
+                    }
+                  {
+
+                    sell === "Goods" ? <></> :
+                  <div className=" flex flex-col gap-1">
+                    <label htmlFor="title">What types of services do you deal with?</label>
+                    <div className="border border-black rounded-sm p-2 ">
+                      <input
+                        required
+                        className="bg-transparent outline-none w-full text-sm"
+                        placeholder="ex. mobiles,cars,tv,frige,ac repairing services or any types of other services"
+                        type="text"
+                        name=""
+                        id=""
+                        onChange={(e) => setDealsInServices(e.target.value)}
+                        value={dealsInServices}
+                      />
+                    </div>
+                  </div>
+
+}
+
+
+                  {sell === "Both" || sell === "Services" ? (
+                    <div className=" flex flex-col gap-1">
+                      <label htmlFor="title">
+                       Please enter your starting service charge
+                      </label>
+                      <div className="border flex items-center justify-center border-black rounded-sm p-2 ">
+                        <span className="text-sm">Rs:</span>
+                        <input
+                          required
+                          className="bg-transparent outline-none w-full text-sm"
+                          placeholder="Enter your starting service charge"
+                          type="number"
+                          name=""
+                          id=""
+                          onChange={(e) => setServicesCharges(e.target.value)}
+                          value={serviceCharges}
+                        />
+                      </div>
+                    </div>
+                  ) : (
+                    <></>
+                  )}
 
                   <div>
                     <label htmlFor="business Type">
@@ -372,9 +423,11 @@ const CreateSpace = () => {
                         onChange={(e) => setWorkingRange(e.target.value)}
                         value={workingRange}
                       >
-                        <option  value="25-Km">25-Km</option>
-                        <option  value="50-Km">50-Km</option>
-                        <option  value="100-Km">100-Km</option>
+                        <option  value="5Km">5 Km</option>
+                        <option  value="15Km">15 Km</option>
+                        <option  value="25Km">25 Km</option>
+                        <option  value="50Km">50 Km</option>
+                        <option  value="100-Km">100 Km</option>
                         <option  value="Punjab">Punjab</option>
                         <option  value="India">India</option>
                         {sell === "Both" || sell === "Services" ? (
@@ -386,44 +439,6 @@ const CreateSpace = () => {
                     </div>
                   </div>
 
-                  {sell === "Both" || sell === "Services" ? (
-                    <div className=" flex flex-col gap-1">
-                      <label htmlFor="title">
-                        Enter your service charge per hour
-                      </label>
-                      <div className="border flex items-center justify-center border-black rounded-sm p-2 ">
-                        <span className="text-sm">Rs:</span>
-                        <input
-                          required
-                          className="bg-transparent outline-none w-full text-sm"
-                          placeholder="Enter your service charge per hour"
-                          type="number"
-                          name=""
-                          id=""
-                          onChange={(e) => setServicesCharges(e.target.value)}
-                          value={serviceCharges}
-                        />
-                      </div>
-                    </div>
-                  ) : (
-                    <></>
-                  )}
-
-                  <div className=" flex flex-col gap-1">
-                    <label htmlFor="title">Create profile password</label>
-                    <div className="flex justify-center  border border-black rounded-sm p-2 ">
-                      <input
-                        required
-                        className="bg-transparent outline-none w-full text-sm"
-                        placeholder="Enter unique profile password"
-                        type="password"
-                        name=""
-                        id=""
-                        onChange={(e) => setPassword(e.target.value)}
-                        value={password}
-                      />
-                    </div>
-                  </div>
 
                   <div>
                     <p className="mt-4 mb-2 ">Write about your business</p>
