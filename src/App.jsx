@@ -18,6 +18,8 @@ import InstallApp from "./pages/InstallApp";
 import Dashboard from "./pages/Dashboard";
 import UnderReview from "./components/UnderReview";
 import ProfileRejected from "./components/ProfileRejected";
+import ProductUploadForm from "./components/ProductUploadForm";
+import OpenStoreForm from "./components/OpenStoreForm";
 const App = () => {
   return (
     <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] ">
@@ -50,6 +52,9 @@ const App = () => {
 
         <Route path="/under-review" element={<UnderReview/>}/>
         <Route path="/profile-rejected" element={<ProfileRejected/>}/>
+
+        <Route path="/product-upload" element={<ProductUploadForm/>}/>
+        <Route path="/open-store" element={<OpenStoreForm/>}/>
 
 
       </Routes>
