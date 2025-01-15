@@ -20,6 +20,7 @@ import UnderReview from "./components/UnderReview";
 import ProfileRejected from "./components/ProfileRejected";
 import ProductUploadForm from "./components/ProductUploadForm";
 import OpenStoreForm from "./components/OpenStoreForm";
+import NotFound from "./components/NotFound";
 const App = () => {
   return (
     <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] ">
@@ -55,6 +56,8 @@ const App = () => {
 
         <Route path="/product-upload" element={<ProductUploadForm/>}/>
         <Route path="/open-store" element={<OpenStoreForm/>}/>
+
+        <Route path="/not-found" element={<NotFound/>}/>
 
 
       </Routes>

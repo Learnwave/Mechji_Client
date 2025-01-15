@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import { shops } from "../assets/assets_frontend/assets";
 import { products } from "../assets/assets_products/frontend_assets/assets";
 
+
 export const AppContent = createContext();
            
 export const AppContextProvider = (props)=>{
@@ -14,6 +15,7 @@ export const AppContextProvider = (props)=>{
         const [token,setToken] = useState("");
         const [storeActive,setStoreActive] = useState("");
         console.log(storeActive);
+
         
        
         const [isLoggedin, setIsLoggedin] = useState(false);
@@ -32,6 +34,8 @@ export const AppContextProvider = (props)=>{
                     
                 }
             } catch (error) {
+                
+               
                 toast.error(error.message)
             }
         }
@@ -50,6 +54,7 @@ export const AppContextProvider = (props)=>{
 
             } catch (error) {
                 toast.error(error.message)
+               // navigate('/not-found')
             }
         }
 
